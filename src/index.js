@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function getTime() {
+  return new Date().toLocaleTimeString();
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+  const buttonStyle = {
+    color: "#fff",
+    backgroundColor: "blue",
+    border: "none",
+    padding: "10px",
+    borderRadius: "20px",
+  };
+  return (
+    <div>
+      <label htmlFor="username">Enter Name :</label>
+      <input type="text" name="username" id="username" />
+      <button style={buttonStyle}>Submit</button>
+      <h3>Current Time</h3>
+      <h1>{getTime()}</h1>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.querySelector("#root"));
